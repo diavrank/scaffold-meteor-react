@@ -12,6 +12,7 @@ const Login = () => {
 	const login = (e: any) => {
 		e.preventDefault();
 		//Do login
+		console.log('user: ', user);
 	};
 
 	return (
