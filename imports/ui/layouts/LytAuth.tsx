@@ -23,7 +23,7 @@ const LytAuth = () => {
 			<Grid item xs={ 12 } sm={ 8 } md={ 4 }
 			      sx={ { display: 'flex', flexDirection: 'column', justifyContent: 'center', p: 12 } }>
 				<Box sx={ { textAlign: 'center' } }>
-					<img src="/img/vuetify.png" alt="Material UI" height="180px" width="auto"/>
+					<img src="/img/mui.png" alt="Material UI" height="180px" width="auto"/>
 				</Box>
 				{/*<Login/>*/ }
 				{/*<ForgotPassword/>*/ }
