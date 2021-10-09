@@ -46,7 +46,8 @@ export default createTheme({
 		MuiTextField: {
 			defaultProps: {
 				variant: 'standard',
-				fullWidth: true
+				fullWidth: true,
+				margin: 'normal'
 			}
 		},
 		MuiButton: {
