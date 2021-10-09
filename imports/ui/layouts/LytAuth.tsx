@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, CssBaseline, Grid } from '@mui/material';
+import Login from '/imports/ui/views/Auth/Login';
 
 const styles = {
 	root: {
@@ -21,7 +22,7 @@ const LytAuth = () => {
 				<Box sx={ { textAlign: 'center' } }>
 					<img src="/img/vuetify.png" alt="Material UI" height="180px" width="auto"/>
 				</Box>
-				{/*	router-view */ }
+				<Login/>
 			</Grid>
 			<Grid item xs={ 12 } sm={ 4 } md={ 8 }
 			      sx={ { ...styles.rightSide, display: 'flex', flexDirection: 'column', justifyContent: 'center' } }>
