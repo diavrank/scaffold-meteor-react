@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { Box, Button, IconButton, InputAdornment, TextField } from '@mui/material';
-import { rounded } from '/imports/ui/directives/buttonStyles';
 import { Visibility, VisibilityOff } from '@mui/icons-material';
+import { rounded } from '/imports/ui/directives/buttonStyles';
 
 interface UserPassword {
 	password: string;
@@ -13,7 +13,7 @@ interface ShowPassword {
 	confirm: boolean;
 }
 
-const SetInitialPassword = () => {
+const ResetPassword = () => {
 
 	const [user, setUser] = useState<UserPassword>({
 		password: '',
@@ -29,15 +29,14 @@ const SetInitialPassword = () => {
 		setUser({ ...user, [prop]: event.target.value });
 	};
 
-	const setPassword = (e: any) => {
+	const resetPassword = (e: any) => {
 		e.preventDefault();
-		console.log(user);
 	};
 
 	return (
 		<Fragment>
-			<Box sx={ { typography: 'h6' } }>Set initial password</Box>
-			<form onSubmit={ setPassword }>
+			<Box sx={ { typography: 'h6' } }>Reset password</Box>
+			<form onSubmit={ resetPassword }>
 				<TextField type={ !showPassword.new ? 'password' : 'text' }
 				           label="New password"
 				           name="password"
@@ -82,11 +81,11 @@ const SetInitialPassword = () => {
 				</TextField>
 
 				<Box sx={ { display: 'flex', justifyContent: 'flex-start', mt: 2 } }>
-					<Button type="submit" color="primary" sx={ { ...rounded } }>Send</Button>
+					<Button type="submit" color="primary" sx={ { ...rounded } }>Change</Button>
 				</Box>
 			</form>
 		</Fragment>
 	);
 };
 
-export default SetInitialPassword;
+export default ResetPassword;

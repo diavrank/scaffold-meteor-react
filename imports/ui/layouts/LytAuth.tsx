@@ -3,6 +3,7 @@ import { Box, CssBaseline, Grid } from '@mui/material';
 import Login from '/imports/ui/views/Auth/Login';
 import ForgotPassword from '/imports/ui/views/Auth/ForgotPassword';
 import SetInitialPassword from '/imports/ui/views/Auth/SetInitialPassword';
+import ResetPassword from '/imports/ui/views/Auth/ResetPassword';
 
 const styles = {
 	root: {
@@ -26,7 +27,8 @@ const LytAuth = () => {
 				</Box>
 				{/*<Login/>*/ }
 				{/*<ForgotPassword/>*/ }
-				<SetInitialPassword/>
+				{/*<SetInitialPassword/>*/}
+				<ResetPassword/>
 			</Grid>
 			<Grid item xs={ 12 } sm={ 4 } md={ 8 }
 			      sx={ { ...styles.rightSide, display: 'flex', flexDirection: 'column', justifyContent: 'center' } }>
