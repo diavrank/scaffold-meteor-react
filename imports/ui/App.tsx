@@ -6,7 +6,7 @@ import theme from './plugins/material-ui';
 
 export const App = () => (
 	<ThemeProvider theme={ theme }>
-		<LytAuth/>
-		{/*<LytSPA/>*/ }
+		{/*<LytAuth/>*/}
+		<LytSPA/>
 	</ThemeProvider>
 );
