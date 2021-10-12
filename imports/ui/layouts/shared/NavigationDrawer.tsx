@@ -5,7 +5,7 @@ import {
 	CssBaseline,
 	Drawer, Icon,
 	List,
-	ListItem, ListItemAvatar, ListItemIcon, ListItemText
+	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText
 } from '@mui/material';
 import FooterView from '/imports/ui/layouts/shared/FooterView';
 
@@ -30,6 +30,10 @@ const NavigationDrawer = (props: Props) => {
 		setMobileOpen(!mobileOpen);
 	};
 
+	const handleListItemClick = (_event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
+		setOptionSelected(index);
+	};
+
 	React.useEffect(() => {
 		setOptions([
 			{
@@ -52,17 +56,18 @@ const NavigationDrawer = (props: Props) => {
 	const drawerItems = (
 		<div>
 			<List dense={ true } sx={ { py: 0 } }>
-				{ options.map((option) => (
-					<ListItem button key={ option.title }
+				{ options.map((option, index: number) => (
+					<ListItemButton  key={ option.title } selected={ optionSelected === index }
+					          onClick={ (event) => handleListItemClick(event, index) }
 					          sx={ {
 						          ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.08)' },
-						          ':active': { backgroundColor: 'rgba(255, 255, 255, 0.24)' }
+						          '&.Mui-selected': { backgroundColor: 'rgba(255, 255, 255, 0.24) !important' }
 					          } }>
 						<ListItemIcon>
 							<Icon sx={ { color: 'white' } }>{ option.icon }</Icon>
 						</ListItemIcon>
 						<ListItemText sx={ { color: 'white' } } primary={ option.title }/>
-					</ListItem>
+					</ListItemButton>
 				)) }
 			</List>
 			<FooterView/>
@@ -124,8 +129,7 @@ const NavigationDrawer = (props: Props) => {
 								height: '100%',
 								content: '""',
 								display: 'block',
-								background: '#000',
-								opacity: '0.6'
+								background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5))'
 							}
 						}
 					} }
