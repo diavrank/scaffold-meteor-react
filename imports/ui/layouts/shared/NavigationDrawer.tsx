@@ -7,13 +7,9 @@ import {
 	List,
 	ListItem, ListItemAvatar, ListItemIcon, ListItemText
 } from '@mui/material';
-import { makeStyles } from '@mui/styles';
 import FooterView from '/imports/ui/layouts/shared/FooterView';
-import styles from '../../assets/sidebarStyle';
-import classNames from 'classnames';
 
-const useStyles = makeStyles(styles);
-const drawerWidth = 240;
+const DRAWER_WIDTH = 256;
 
 interface Props {
 	/**
@@ -25,7 +21,6 @@ interface Props {
 
 const NavigationDrawer = (props: Props) => {
 	const { window } = props;
-	const classes = useStyles();
 	const [mobileOpen, setMobileOpen] = React.useState(false);
 
 	const [options, setOptions] = React.useState<Array<any>>([]);
@@ -58,11 +53,15 @@ const NavigationDrawer = (props: Props) => {
 		<div>
 			<List dense={ true } sx={ { py: 0 } }>
 				{ options.map((option) => (
-					<ListItem button key={ option.title }>
+					<ListItem button key={ option.title }
+					          sx={ {
+						          ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.08)' },
+						          ':active': { backgroundColor: 'rgba(255, 255, 255, 0.24)' }
+					          } }>
 						<ListItemIcon>
-							<Icon>{ option.icon }</Icon>
+							<Icon sx={ { color: 'white' } }>{ option.icon }</Icon>
 						</ListItemIcon>
-						<ListItemText primary={ option.title }/>
+						<ListItemText sx={ { color: 'white' } } primary={ option.title }/>
 					</ListItem>
 				)) }
 			</List>
@@ -74,9 +73,9 @@ const NavigationDrawer = (props: Props) => {
 		<List dense={ true } sx={ { py: 0 } }>
 			<ListItem sx={ { p: 5, textAlign: 'center' } }>
 				<ListItemAvatar>
-					<Avatar alt="METEOR" src="/img/meteor-vue.png" sx={ { height: 50 } }/>
+					<Avatar alt="METEOR" src="/img/meteor-vue.png"/>
 				</ListItemAvatar>
-				<ListItemText>Theory SwE</ListItemText>
+				<ListItemText sx={ { color: 'white' } }>Theory SwE</ListItemText>
 			</ListItem>
 		</List>
 	);
@@ -88,7 +87,7 @@ const NavigationDrawer = (props: Props) => {
 			<CssBaseline/>
 			<Box
 				component="nav"
-				sx={ { width: { sm: drawerWidth }, flexShrink: { sm: 0 } } }
+				sx={ { width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } } }
 				aria-label="mailbox folders"
 			>
 				{/* The implementation can be swapped with js to avoid SEO duplication of links. */ }
@@ -98,7 +97,7 @@ const NavigationDrawer = (props: Props) => {
 					open={ mobileOpen }
 					sx={ {
 						display: { xs: 'block', sm: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: drawerWidth }
+						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH }
 					} }
 					onClose={ handleDrawerToggle }
 					ModalProps={ {
@@ -114,22 +113,26 @@ const NavigationDrawer = (props: Props) => {
 						display: { xs: 'none', sm: 'block' },
 						'& .MuiDrawer-paper': {
 							boxSizing: 'border-box',
-							width: drawerWidth
+							width: DRAWER_WIDTH,
+							backgroundImage: 'url(/img/meteorImpact.jpg)',
+							position: 'absolute',
+							backgroundSize: 'cover',
+							backgroundPosition: 'center center',
+							'&:before': {
+								position: 'absolute',
+								width: '100%',
+								height: '100%',
+								content: '""',
+								display: 'block',
+								background: '#000',
+								opacity: '0.6'
+							}
 						}
-					} }
-					classes={ {
-						paper: classNames(classes.drawerPaper, {
-							[classes.drawerPaperRTL]: false
-						})
 					} }
 					open
 				>
-					<div className={ classes.sidebarWrapper }>
-						{ brand }
-						{ drawerItems }
-					</div>
-					<div className={ classes.background }
-					     style={ { backgroundImage: 'url(/img/meteorImpact.jpg)' } }/>
+					{ brand }
+					{ drawerItems }
 				</Drawer>
 			</Box>
 		</Box>

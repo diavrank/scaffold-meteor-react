@@ -12,7 +12,13 @@ const FooterView = () => {
 			color: '#6f6f6f',
 			backgroundColor: 'transparent !important'
 		} }>
-			<Box sx={ { display: 'flex', flexDirection: 'column', justifyContent: 'center', width: '100%' } }>
+			<Box sx={ {
+				display: 'flex',
+				flexDirection: 'column',
+				justifyContent: 'center',
+				width: '100%',
+				textAlign: 'center'
+			} }>
 				<Box sx={ { typography: 'subtitle2', color: 'white' } }>
 					© 2021 By Diavrank
 				</Box>
