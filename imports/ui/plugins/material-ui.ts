@@ -17,7 +17,7 @@ declare module '@mui/material/Button' {
 	}
 }
 
-export default createTheme({
+let theme = createTheme({
 	palette: {
 		primary: {
 			main: '#01697d'
@@ -63,4 +63,14 @@ export default createTheme({
 		}
 	},
 	spacing: 4 //Vuetify v2.5 spacing of 4px
+});
+
+export default createTheme(theme, {
+	components: {
+		MuiAppBar: {
+			defaultProps: {
+				elevation: 0
+			}
+		}
+	}
 });

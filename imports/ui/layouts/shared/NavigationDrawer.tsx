@@ -8,8 +8,31 @@ import {
 	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText
 } from '@mui/material';
 import FooterView from '/imports/ui/layouts/shared/FooterView';
+import { useDispatch, useSelector } from 'react-redux';
+import { setDrawerAction } from '/imports/ui/modules/temporal';
 
-const DRAWER_WIDTH = 256;
+export const DRAWER_WIDTH = 256;
+
+const styles = {
+	backgroundImage: {
+		'& .MuiDrawer-paper': {
+			boxSizing: 'border-box',
+			width: DRAWER_WIDTH,
+			backgroundImage: 'url(/img/meteorImpact.jpg)',
+			position: 'absolute',
+			backgroundSize: 'cover',
+			backgroundPosition: 'center center',
+			'&:before': {
+				position: 'absolute',
+				width: '100%',
+				height: '100%',
+				content: '""',
+				display: 'block',
+				background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5))'
+			}
+		}
+	}
+};
 
 interface Props {
 	/**
@@ -21,13 +44,15 @@ interface Props {
 
 const NavigationDrawer = (props: Props) => {
 	const { window } = props;
-	const [mobileOpen, setMobileOpen] = React.useState(false);
+	const [mobileOpen, setMobileOpen] = React.useState(true);
 
 	const [options, setOptions] = React.useState<Array<any>>([]);
 	const [optionSelected, setOptionSelected] = React.useState(0);
+	const dispatch = useDispatch();
+	const drawer = useSelector(store => store.temporal.drawer);
 
 	const handleDrawerToggle = () => {
-		setMobileOpen(!mobileOpen);
+		dispatch(setDrawerAction(!mobileOpen));
 	};
 
 	const handleListItemClick = (_event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
@@ -53,16 +78,20 @@ const NavigationDrawer = (props: Props) => {
 		]);
 	}, []);
 
+	React.useEffect(() => {
+		setMobileOpen(drawer);
+	}, [drawer]);
+
 	const drawerItems = (
 		<div>
 			<List dense={ true } sx={ { py: 0 } }>
 				{ options.map((option, index: number) => (
-					<ListItemButton  key={ option.title } selected={ optionSelected === index }
-					          onClick={ (event) => handleListItemClick(event, index) }
-					          sx={ {
-						          ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.08)' },
-						          '&.Mui-selected': { backgroundColor: 'rgba(255, 255, 255, 0.24) !important' }
-					          } }>
+					<ListItemButton key={ option.title } selected={ optionSelected === index }
+					                onClick={ (event) => handleListItemClick(event, index) }
+					                sx={ {
+						                ':hover': { backgroundColor: 'rgba(255, 255, 255, 0.08)' },
+						                '&.Mui-selected': { backgroundColor: 'rgba(255, 255, 255, 0.24) !important' }
+					                } }>
 						<ListItemIcon>
 							<Icon sx={ { color: 'white' } }>{ option.icon }</Icon>
 						</ListItemIcon>
@@ -102,7 +131,7 @@ const NavigationDrawer = (props: Props) => {
 					open={ mobileOpen }
 					sx={ {
 						display: { xs: 'block', sm: 'none' },
-						'& .MuiDrawer-paper': { boxSizing: 'border-box', width: DRAWER_WIDTH }
+						...styles.backgroundImage
 					} }
 					onClose={ handleDrawerToggle }
 					ModalProps={ {
@@ -113,27 +142,12 @@ const NavigationDrawer = (props: Props) => {
 					{ drawerItems }
 				</Drawer>
 				<Drawer
-					variant="permanent"
+					variant="persistent"
 					sx={ {
 						display: { xs: 'none', sm: 'block' },
-						'& .MuiDrawer-paper': {
-							boxSizing: 'border-box',
-							width: DRAWER_WIDTH,
-							backgroundImage: 'url(/img/meteorImpact.jpg)',
-							position: 'absolute',
-							backgroundSize: 'cover',
-							backgroundPosition: 'center center',
-							'&:before': {
-								position: 'absolute',
-								width: '100%',
-								height: '100%',
-								content: '""',
-								display: 'block',
-								background: 'linear-gradient(to right, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5))'
-							}
-						}
+						...styles.backgroundImage
 					} }
-					open
+					open={ mobileOpen }
 				>
 					{ brand }
 					{ drawerItems }

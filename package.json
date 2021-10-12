@@ -15,13 +15,17 @@
     "@mui/material": "^5.0.2",
     "meteor-node-stubs": "^1.1.0",
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "react-redux": "^7.2.5",
+    "redux": "^4.1.1",
+    "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
     "@types/meteor": "^1.4.70",
     "@types/mocha": "^8.2.2",
     "@types/react": "^17.0.3",
     "@types/react-dom": "^17.0.3",
+    "redux-devtools": "^3.7.0",
     "typescript": "^4.2.4"
   },
   "meteor": {

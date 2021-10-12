@@ -5,13 +5,11 @@ import NavigationDrawer from '/imports/ui/layouts/shared/NavigationDrawer';
 
 const LytSpa = () => {
 	return (
-		<Fragment>
-			<Grid container>
-				<HeaderView/>
-				<NavigationDrawer/>
+		<Grid container>
+			<HeaderView/>
+			<NavigationDrawer/>
 
-			</Grid>
-		</Fragment>
+		</Grid>
 	);
 };
 
