@@ -5,7 +5,7 @@ import {
 	CssBaseline,
 	Drawer, Icon,
 	List,
-	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText
+	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Typography
 } from '@mui/material';
 import FooterView from '/imports/ui/layouts/shared/FooterView';
 import { useDispatch, useSelector } from 'react-redux';
@@ -109,7 +109,11 @@ const NavigationDrawer = (props: Props) => {
 				<ListItemAvatar>
 					<Avatar alt="METEOR" src="/img/meteor-vue.png"/>
 				</ListItemAvatar>
-				<ListItemText sx={ { color: 'white' } }>Theory SwE</ListItemText>
+				<ListItemText sx={ { color: 'white' } }>
+					<Typography variant="subtitle2">
+						Theory SwE
+					</Typography>
+				</ListItemText>
 			</ListItem>
 		</List>
 	);

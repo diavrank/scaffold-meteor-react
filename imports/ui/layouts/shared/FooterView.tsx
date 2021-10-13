@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const FooterView = () => {
 	return (
@@ -15,13 +15,13 @@ const FooterView = () => {
 			<Box sx={ {
 				display: 'flex',
 				flexDirection: 'column',
+				textAlign: 'center',
 				justifyContent: 'center',
 				width: '100%',
-				textAlign: 'center'
 			} }>
-				<Box sx={ { typography: 'subtitle2', color: 'white' } }>
+				<Typography variant="caption" color="white">
 					© 2021 By Diavrank
-				</Box>
+				</Typography>
 			</Box>
 		</Box>
 	);
