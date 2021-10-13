@@ -41,7 +41,7 @@ const HeaderView = () => {
 	}, [isMobile]);
 	return (
 		<AppBar position="fixed" color="transparent" open={ drawer }>
-			<Toolbar variant="dense">
+			<Toolbar>
 				<IconButton
 					size="large"
 					edge="start"
