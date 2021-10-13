@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import HeaderView from '/imports/ui/layouts/shared/HeaderView';
 import NavigationDrawer, { DRAWER_WIDTH } from '/imports/ui/layouts/shared/NavigationDrawer';
@@ -15,13 +15,12 @@ const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 		easing: theme.transitions.easing.sharp,
 		duration: theme.transitions.duration.leavingScreen
 	}),
-	marginLeft: `-${ DRAWER_WIDTH }px`,
 	...(open && {
 		transition: theme.transitions.create('margin', {
 			easing: theme.transitions.easing.easeOut,
 			duration: theme.transitions.duration.enteringScreen
 		}),
-		marginLeft: 0
+		marginLeft: "0px !important"
 	})
 }));
 const DrawerHeader = styled('div')(({ theme }) => ({
@@ -40,7 +39,15 @@ const LytSpa = () => {
 			<CssBaseline/>
 			<HeaderView/>
 			<NavigationDrawer/>
-			<Main open={ drawer }>
+			<Main open={ drawer } sx={ {
+				ml: {
+					xs: 0,
+					sm: `-${ DRAWER_WIDTH }px`,
+					md: `-${ DRAWER_WIDTH }px`,
+					lg: `-${ DRAWER_WIDTH }px`,
+					xl: `-${ DRAWER_WIDTH }px`
+				}
+			} }>
 				<DrawerHeader/>
 				<ListUsers/>
 			</Main>

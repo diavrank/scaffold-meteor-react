@@ -34,11 +34,7 @@ const AppBar = styled(MuiAppBar, {
 const HeaderView = () => {
 	const dispatch = useDispatch();
 	const drawer = useSelector(store => store.temporal.drawer);
-	const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
 
-	React.useEffect(() => {
-		dispatch(setDrawerAction(!isMobile));
-	}, [isMobile]);
 	return (
 		<AppBar position="fixed" color="transparent" open={ drawer }>
 			<Toolbar>

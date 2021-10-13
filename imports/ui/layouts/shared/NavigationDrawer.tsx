@@ -1,15 +1,16 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import {
 	Avatar,
 	Box,
 	CssBaseline,
 	Drawer, Icon,
 	List,
-	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Typography
+	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Theme, Typography
 } from '@mui/material';
 import FooterView from '/imports/ui/layouts/shared/FooterView';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerAction } from '/imports/ui/modules/temporal';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 export const DRAWER_WIDTH = 256;
 
@@ -82,6 +83,12 @@ const NavigationDrawer = (props: Props) => {
 		setMobileOpen(drawer);
 	}, [drawer]);
 
+	const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('md'));
+
+	React.useEffect(() => {
+		dispatch(setDrawerAction(!isMobile));
+	}, [isMobile]);
+
 	const drawerItems = (
 		<div>
 			<List dense={ true } sx={ { py: 0 } }>
@@ -121,42 +128,39 @@ const NavigationDrawer = (props: Props) => {
 	const container = window !== undefined ? () => window().document.body : undefined;
 
 	return (
-		<Box sx={ { display: 'flex' } }>
-			<CssBaseline/>
-			<Box
-				component="nav"
-				sx={ { width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } } }
-				aria-label="mailbox folders"
+		<Box
+			component="nav"
+			sx={ { width: { sm: DRAWER_WIDTH }, flexShrink: { sm: 0 } } }
+			aria-label="mailbox folders"
+		>
+			{/* The implementation can be swapped with js to avoid SEO duplication of links. */ }
+			<Drawer
+				variant="temporary"
+				container={ container }
+				open={ mobileOpen }
+				sx={ {
+					display: { xs: 'block', sm: 'none' },
+					...styles.backgroundImage
+				} }
+				onClose={ handleDrawerToggle }
+				ModalProps={ {
+					keepMounted: true // Better open performance on mobile.
+				} }
 			>
-				{/* The implementation can be swapped with js to avoid SEO duplication of links. */ }
-				<Drawer
-					variant="temporary"
-					container={ container }
-					open={ mobileOpen }
-					sx={ {
-						display: { xs: 'block', sm: 'none' },
-						...styles.backgroundImage
-					} }
-					onClose={ handleDrawerToggle }
-					ModalProps={ {
-						keepMounted: true // Better open performance on mobile.
-					} }
-				>
-					{ brand }
-					{ drawerItems }
-				</Drawer>
-				<Drawer
-					variant="persistent"
-					sx={ {
-						display: { xs: 'none', sm: 'block' },
-						...styles.backgroundImage
-					} }
-					open={ mobileOpen }
-				>
-					{ brand }
-					{ drawerItems }
-				</Drawer>
-			</Box>
+				{ brand }
+				{ drawerItems }
+			</Drawer>
+			<Drawer
+				variant="persistent"
+				sx={ {
+					display: { xs: 'none', sm: 'block' },
+					...styles.backgroundImage
+				} }
+				open={ mobileOpen }
+			>
+				{ brand }
+				{ drawerItems }
+			</Drawer>
 		</Box>
 	);
 };
