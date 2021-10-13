@@ -1,11 +1,12 @@
 import React from 'react';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
-import { IconButton, Toolbar, Typography } from '@mui/material';
+import { IconButton, Theme, Toolbar } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
 import { DRAWER_WIDTH } from '/imports/ui/layouts/shared/NavigationDrawer';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerAction } from '/imports/ui/modules/temporal';
+import useMediaQuery from '@mui/material/useMediaQuery';
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
@@ -31,6 +32,11 @@ const AppBar = styled(MuiAppBar, {
 const HeaderView = () => {
 	const dispatch = useDispatch();
 	const drawer = useSelector(store => store.temporal.drawer);
+	const isMobile = useMediaQuery((theme: Theme) => theme.breakpoints.down('sm'));
+
+	React.useEffect(() => {
+		dispatch(setDrawerAction(!isMobile));
+	}, [isMobile]);
 	return (
 		<AppBar position="fixed" color="transparent" open={ drawer }>
 			<Toolbar variant="dense">
@@ -43,9 +49,6 @@ const HeaderView = () => {
 				>
 					<MenuIcon/>
 				</IconButton>
-				<Typography variant="h6" component="div" sx={ { flexGrow: 1 } }>
-					Photos
-				</Typography>
 			</Toolbar>
 		</AppBar>
 	);
