@@ -7,6 +7,7 @@ import { DRAWER_WIDTH } from '/imports/ui/layouts/shared/NavigationDrawer';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerAction } from '/imports/ui/modules/temporal';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Breadcrumb from '/imports/ui/layouts/shared/Breadcrumb';
 
 interface AppBarProps extends MuiAppBarProps {
 	open?: boolean;
@@ -49,6 +50,7 @@ const HeaderView = () => {
 				>
 					<MenuIcon/>
 				</IconButton>
+				<Breadcrumb/>
 			</Toolbar>
 		</AppBar>
 	);
