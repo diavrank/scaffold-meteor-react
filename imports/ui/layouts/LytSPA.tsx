@@ -43,9 +43,6 @@ const LytSpa = () => {
 				ml: {
 					xs: 0,
 					sm: `-${ DRAWER_WIDTH }px`,
-					md: `-${ DRAWER_WIDTH }px`,
-					lg: `-${ DRAWER_WIDTH }px`,
-					xl: `-${ DRAWER_WIDTH }px`
 				}
 			} }>
 				<DrawerHeader/>

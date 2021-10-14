@@ -1,8 +1,7 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import {
 	Avatar,
 	Box,
-	CssBaseline,
 	Drawer, Icon,
 	List,
 	ListItem, ListItemAvatar, ListItemButton, ListItemIcon, ListItemText, Theme, Typography
@@ -139,7 +138,7 @@ const NavigationDrawer = (props: Props) => {
 				container={ container }
 				open={ mobileOpen }
 				sx={ {
-					display: { xs: 'block', sm: 'none' },
+					display: { xs: 'block', md: 'none' },
 					...styles.backgroundImage
 				} }
 				onClose={ handleDrawerToggle }
@@ -153,7 +152,7 @@ const NavigationDrawer = (props: Props) => {
 			<Drawer
 				variant="persistent"
 				sx={ {
-					display: { xs: 'none', sm: 'block' },
+					display: { xs: 'none', md: 'block' },
 					...styles.backgroundImage
 				} }
 				open={ mobileOpen }
