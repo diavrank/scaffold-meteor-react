@@ -5,6 +5,7 @@ import NavigationDrawer, { DRAWER_WIDTH } from '/imports/ui/layouts/shared/Navig
 import ListUsers from '/imports/ui/views/Users/ListUsers';
 import { styled } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
+import SaveUser from '/imports/ui/views/Users/SaveUser';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 	open?: boolean;
@@ -46,7 +47,8 @@ const LytSpa = () => {
 				}
 			} }>
 				<DrawerHeader/>
-				<ListUsers/>
+				{/*<ListUsers/>*/}
+				<SaveUser/>
 			</Main>
 		</Box>
 	);

@@ -63,6 +63,18 @@ let theme = createTheme({
 					backgroundColor: '#fff'
 				}
 			}
+		},
+		MuiFormControl: {
+			defaultProps: {
+				variant: 'standard',
+				fullWidth: true,
+				margin: 'normal'
+			}
+		},
+		MuiGrid: {
+			defaultProps: {
+				spacing: 3
+			}
 		}
 	},
 	spacing: 4 //Vuetify v2.5 spacing of 4px
