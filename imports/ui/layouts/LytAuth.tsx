@@ -19,18 +19,18 @@ const styles = {
 
 const LytAuth = () => {
 	return (
-		<Grid container sx={ styles.root }>
+		<Grid container spacing={ 0 } sx={ styles.root }>
 			<CssBaseline/>
 			<Grid item xs={ 12 } sm={ 8 } md={ 4 }
 			      sx={ { display: 'flex', flexDirection: 'column', justifyContent: 'center', p: 12 } }>
 				<Box sx={ { textAlign: 'center' } }>
 					<img src="/img/mui.png" alt="Material UI" height="180px" width="auto"/>
 				</Box>
-				{/*<Login/>*/ }
-				{/*<ForgotPassword/>*/ }
+				<Login/>
+				{/*<ForgotPassword/>*/}
 				{/*<SetInitialPassword/>*/}
-				{/*<ResetPassword/>*/}
-				<VerifyAccount/>
+				{/*<ResetPassword/>*/ }
+				{/*<VerifyAccount/>*/}
 			</Grid>
 			<Grid item xs={ 12 } sm={ 4 } md={ 8 }
 			      sx={ { ...styles.rightSide, display: 'flex', flexDirection: 'column', justifyContent: 'center' } }>

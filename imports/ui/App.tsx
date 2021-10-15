@@ -9,8 +9,8 @@ import generateStore from '/imports/ui/store';
 export const App = () => (
 	<ThemeProvider theme={ theme }>
 		<Provider store={ generateStore() }>
-			{/*<LytAuth/>*/ }
-			<LytSPA/>
+			<LytAuth/>
+			{/*<LytSPA/>*/}
 		</Provider>
 	</ThemeProvider>
 );
