@@ -1,4 +1,5 @@
 import { createTheme } from '@mui/material/styles';
+import { esES } from '@mui/material/locale';
 
 declare module '@mui/material/styles' {
 
@@ -8,12 +9,6 @@ declare module '@mui/material/styles' {
 
 	interface PaletteOptions {
 		accent: PaletteOptions['primary'];
-	}
-}
-
-declare module '@mui/material/Button' {
-	interface ButtonPropsVariantOverrides {
-		rounded: true;
 	}
 }
 
@@ -71,7 +66,7 @@ let theme = createTheme({
 		}
 	},
 	spacing: 4 //Vuetify v2.5 spacing of 4px
-});
+}, esES);
 
 export default createTheme(theme, {
 	components: {
