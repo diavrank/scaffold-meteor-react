@@ -73,7 +73,7 @@ let theme = createTheme({
 		},
 		MuiGrid: {
 			defaultProps: {
-				spacing: 3
+				spacing: 6
 			}
 		}
 	},
