@@ -1,40 +1,31 @@
+import { normalizeRoutes } from 'react-view-router';
 import LytSpa from '/imports/ui/layouts/LytSPA';
 import LytAuth from '/imports/ui/layouts/LytAuth';
 import Login from '/imports/ui/views/Auth/Login';
-import ForgotPassword from '../views/Auth/ForgotPassword';
-import ResetPassword from '/imports/ui/views/Auth/ResetPassword';
-import VerifyAccount from '/imports/ui/views/Auth/VerifyAccount';
-import SetInitialPassword from '/imports/ui/views/Auth/SetInitialPassword';
+import ForgotPassword from '/imports/ui/views/Auth/ForgotPassword';
 
-export default [
+export default normalizeRoutes([
+	{ path: '/', index: 'home' },
 	{
 		path: '/home',
 		component: LytSpa
 	},
 	{
-		path: '/',
+		path: '/login',
 		component: LytAuth,
-		routes: [
+		children: [
 			{
 				path: '/forgot-password',
-				component: ForgotPassword
+				components: {
+					sectionView: ForgotPassword
+				}
 			},
 			{
-				path: '/reset-password',
-				component: ResetPassword
-			},
-			{
-				path: '/verify-email',
-				component: VerifyAccount
-			},
-			{
-				path: '/enroll-account',
-				component: SetInitialPassword
-			},
-			{
-				path: '/login',
-				component: Login
+				path: '/',
+				components: {
+					sectionView: Login
+				}
 			}
 		]
 	}
-];
+]);

@@ -1,12 +1,6 @@
 import React from 'react';
 import { Box, CssBaseline, Grid } from '@mui/material';
-import Login from '/imports/ui/views/Auth/Login';
-import ForgotPassword from '/imports/ui/views/Auth/ForgotPassword';
-import SetInitialPassword from '/imports/ui/views/Auth/SetInitialPassword';
-import ResetPassword from '/imports/ui/views/Auth/ResetPassword';
-import VerifyAccount from '/imports/ui/views/Auth/VerifyAccount';
-import { Switch } from 'react-router-dom';
-import { RouteWithSubRoutes } from '/imports/ui/router';
+import { RouterView } from 'react-view-router';
 
 const styles = {
 	root: {
@@ -19,7 +13,7 @@ const styles = {
 	}
 } as const;//MUI 5.0: https://mui.com/system/the-sx-prop/#typescript-usage
 
-const LytAuth = ({routes}) => {
+const LytAuth = () => {
 	return (
 		<Grid container spacing={ 0 } sx={ styles.root }>
 			<CssBaseline/>
@@ -28,11 +22,7 @@ const LytAuth = ({routes}) => {
 				<Box sx={ { textAlign: 'center' } }>
 					<img src="/img/mui.png" alt="Material UI" height="180px" width="auto"/>
 				</Box>
-				<Switch>
-					{ routes.map((route, i) => (
-						<RouteWithSubRoutes key={ i } { ...route } />
-					)) }
-				</Switch>
+				<RouterView name="sectionView"/>
 			</Grid>
 			<Grid item xs={ 12 } sm={ 4 } md={ 8 }
 			      sx={ { ...styles.rightSide, display: 'flex', flexDirection: 'column', justifyContent: 'center' } }>
