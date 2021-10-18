@@ -13,6 +13,7 @@ import {
 	TextField
 } from '@mui/material';
 import { rounded } from '/imports/ui/directives/buttonStyles';
+import router from '/imports/ui/router';
 
 const SaveUser = () => {
 
@@ -31,7 +32,7 @@ const SaveUser = () => {
 			<Grid container>
 				<Grid container item justifyContent="center">
 					<Grid item sx={ { display: 'flex' } } xs={ 12 } sm={ 9 } md={ 8 } lg={ 6 } xl={ 4 }>
-						<Button variant="text">
+						<Button variant="text" onClick={ () => router.back() }>
 							<Icon>chevron_left</Icon>
 						</Button>
 						<Box sx={ { typography: 'h4', fontWeight: 'light' } }>{ 'Save User' }</Box>

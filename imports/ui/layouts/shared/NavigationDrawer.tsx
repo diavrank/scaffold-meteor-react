@@ -10,6 +10,7 @@ import FooterView from '/imports/ui/layouts/shared/FooterView';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerAction } from '/imports/ui/modules/temporal';
 import useMediaQuery from '@mui/material/useMediaQuery';
+import router from '/imports/ui/router';
 
 export const DRAWER_WIDTH = 256;
 
@@ -57,6 +58,7 @@ const NavigationDrawer = (props: Props) => {
 
 	const handleListItemClick = (_event: React.MouseEvent<HTMLDivElement, MouseEvent>, index: number) => {
 		setOptionSelected(index);
+		router.push(`[${ options[index].namePath }]`);
 	};
 
 	React.useEffect(() => {

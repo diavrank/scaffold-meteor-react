@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react';
 import { Box, Button, IconButton, TextField } from '@mui/material';
 import ArrowBack from '@mui/icons-material/ArrowBack';
 import { rounded } from '/imports/ui/directives/buttonStyles';
+import router from '/imports/ui/router';
 
 const ForgotPassword = () => {
 
@@ -15,7 +16,7 @@ const ForgotPassword = () => {
 	return (
 		<Fragment>
 			<Box sx={ { display: 'flex', flexDirection: 'row', justifyContent: 'flex-start' } }>
-				<IconButton color="primary">
+				<IconButton color="primary" onClick={ () => router.push('[login]') }>
 					<ArrowBack/>
 				</IconButton>
 				<Box sx={ { typography: 'h6' } }>Forgot my password</Box>

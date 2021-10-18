@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Box, Button, Icon, TextField } from '@mui/material';
 import { rounded } from './../../directives/buttonStyles';
+import router from '/imports/ui/router';
 
 const Login = () => {
 
@@ -13,6 +14,7 @@ const Login = () => {
 		e.preventDefault();
 		//Do login
 		console.log('user: ', user);
+		router.push('[home]');
 	};
 
 	return (
@@ -38,7 +40,7 @@ const Login = () => {
 					           onChange={ e => setUser({ ...user, password: e.target.value }) }/>
 				</Box>
 				<Box sx={ { display: 'flex', justifyContent: 'flex-end' } }>
-					<Button color="primary" variant="text" size="small">
+					<Button color="primary" variant="text" size="small" onClick={ () => router.push('[forgotPassword]') }>
 						Forgot password?
 					</Button>
 				</Box>

@@ -14,6 +14,7 @@ import {
 import AddIcon from '@mui/icons-material/Add';
 import { visuallyHidden } from '@mui/utils';
 import { Close, Edit } from '@mui/icons-material';
+import router from '/imports/ui/router';
 
 interface Data {
 	'profile.path': string;
@@ -194,7 +195,7 @@ const ListUsers = () => {
 					<Box sx={ { typography: 'h4', fontWeight: 'light' } }>Users</Box>
 					<Box>
 						<Tooltip title="Add user">
-							<Fab color="primary" aria-label="add">
+							<Fab color="primary" aria-label="add" onClick={ () => router.push('[home.users.create]') }>
 								<AddIcon/>
 							</Fab>
 						</Tooltip>
@@ -221,7 +222,8 @@ const ListUsers = () => {
 												<TableCell>{ row['email'] }</TableCell>
 												<TableCell sx={ { borderLeft: '1px solid rgba(224, 224, 224, 1)' } }>
 													<Tooltip title="Edit">
-														<Fab size="small" color="primary" aria-label="edit">
+														<Fab size="small" color="primary" aria-label="edit"
+														     onClick={ () => router.push('[home.users.edit]') }>
 															<Edit/>
 														</Fab>
 													</Tooltip>

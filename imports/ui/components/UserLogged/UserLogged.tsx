@@ -1,5 +1,6 @@
 import React from 'react';
 import { Avatar, IconButton, Menu, MenuItem } from '@mui/material';
+import router from '/imports/ui/router';
 
 const UserLogged = () => {
 	const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -10,6 +11,10 @@ const UserLogged = () => {
 	const handleClose = () => {
 		setAnchorEl(null);
 	};
+	const closeSession = () => {
+		router.push('[login]');
+	};
+
 	return (
 		<React.Fragment>
 			<IconButton onClick={ handleClick } size="small" sx={ { ml: 2 } }>
@@ -50,9 +55,9 @@ const UserLogged = () => {
 				anchorOrigin={ { horizontal: 'right', vertical: 'bottom' } }
 			>
 				<MenuItem>
-					 Account
+					Account
 				</MenuItem>
-				<MenuItem>
+				<MenuItem onClick={ closeSession }>
 					Logout
 				</MenuItem>
 			</Menu>

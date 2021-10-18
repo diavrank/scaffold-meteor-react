@@ -1,40 +1,11 @@
 import React from 'react';
-import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import { Box, IconButton, Toolbar } from '@mui/material';
-import { styled } from '@mui/material/styles';
 import MenuIcon from '@mui/icons-material/Menu';
-import { DRAWER_WIDTH } from '/imports/ui/layouts/shared/NavigationDrawer';
 import { useDispatch, useSelector } from 'react-redux';
 import { setDrawerAction } from '/imports/ui/modules/temporal';
 import Breadcrumb from '/imports/ui/layouts/shared/Breadcrumb';
 import UserLogged from '/imports/ui/components/UserLogged/UserLogged';
-
-interface AppBarProps extends MuiAppBarProps {
-	open?: boolean;
-}
-
-const AppBar = styled(MuiAppBar, {
-	shouldForwardProp: (prop) => prop !== 'open'
-})<AppBarProps>(({ theme, open }) => ({
-	transition: theme.transitions.create(['margin', 'width'], {
-		easing: theme.transitions.easing.sharp,
-		duration: theme.transitions.duration.leavingScreen
-	}),
-	...(open && {
-		[theme.breakpoints.between('xs', 'sm')]: {
-			width: '100%'
-		},
-		[theme.breakpoints.up('md')]: {
-			width: `calc(100% - ${ DRAWER_WIDTH }px)`
-		},
-		// width: theme.breakpoints.between('xs', 'sm') ? '100%' : `calc(100% - ${ DRAWER_WIDTH }px)`,
-		marginLeft: `${ DRAWER_WIDTH }px`,
-		transition: theme.transitions.create(['margin', 'width'], {
-			easing: theme.transitions.easing.easeOut,
-			duration: theme.transitions.duration.enteringScreen
-		})
-	})
-}));
+import { AppBar } from '/imports/ui/components/Utilities/Drawer/AppBar';
 
 const HeaderView = () => {
 	const dispatch = useDispatch();
