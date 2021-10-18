@@ -2,10 +2,9 @@ import React from 'react';
 import { Box, CssBaseline } from '@mui/material';
 import HeaderView from '/imports/ui/layouts/shared/HeaderView';
 import NavigationDrawer, { DRAWER_WIDTH } from '/imports/ui/layouts/shared/NavigationDrawer';
-import ListUsers from '/imports/ui/views/Users/ListUsers';
 import { styled } from '@mui/material/styles';
 import { useSelector } from 'react-redux';
-import SaveUser from '/imports/ui/views/Users/SaveUser';
+import { RouterView } from 'react-view-router';
 
 const Main = styled('main', { shouldForwardProp: (prop) => prop !== 'open' })<{
 	open?: boolean;
@@ -47,8 +46,7 @@ const LytSpa = () => {
 				}
 			} }>
 				<DrawerHeader/>
-				{/*<ListUsers/>*/}
-				<SaveUser/>
+				<RouterView name="sectionView"/>
 			</Main>
 		</Box>
 	);
