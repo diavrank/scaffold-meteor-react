@@ -51,8 +51,7 @@ const SaveUser = () => {
 									<Grid item sm={ 4 } md={ 4 }>
 										<Box sx={ { display: 'flex', flexDirection: 'column', alignItems: 'center' } }>
 											<img src="/img/user.png" alt="Use image" width="100px"/>
-											<Button color="primary"
-											        sx={ { mb: 5, mt: 5, width: '100%', ...rounded } }
+											<Button color="primary" sx={ { mb: 5, mt: 5, width: '100%', ...rounded } }
 											        component="label">
 												Upload File
 												<input type="file" hidden/>

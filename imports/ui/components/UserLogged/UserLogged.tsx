@@ -54,7 +54,7 @@ const UserLogged = () => {
 				transformOrigin={ { horizontal: 'right', vertical: 'top' } }
 				anchorOrigin={ { horizontal: 'right', vertical: 'bottom' } }
 			>
-				<MenuItem>
+				<MenuItem onClick={ () => router.push('[home.account]') }>
 					Account
 				</MenuItem>
 				<MenuItem onClick={ closeSession }>

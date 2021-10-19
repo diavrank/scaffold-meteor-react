@@ -9,7 +9,7 @@ const ConfigureAccount = () => {
 			<Grid container>
 				<Grid container item>
 					<Grid item>
-						<Typography>Configure account</Typography>
+						<Typography variant="h5">Configure account</Typography>
 					</Grid>
 				</Grid>
 				<Grid container item>

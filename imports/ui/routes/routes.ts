@@ -3,6 +3,7 @@ import LytSpa from '/imports/ui/layouts/LytSPA';
 import Home from '/imports/ui/views/Home/Home';
 import userRoutes from '/imports/ui/routes/userRoutes';
 import loginRoutes from '/imports/ui/routes/loginRoutes';
+import ConfigureAccount from '../views/Account/ConfigureAccount';
 
 export default normalizeRoutes([
 	{
@@ -15,6 +16,13 @@ export default normalizeRoutes([
 				exact: true,
 				components: {
 					sectionView: Home
+				}
+			},
+			{
+				path: 'account',
+				name: 'home.account',
+				components: {
+					sectionView: ConfigureAccount
 				}
 			},
 			userRoutes
