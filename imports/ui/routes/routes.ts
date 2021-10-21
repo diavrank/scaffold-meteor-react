@@ -4,6 +4,7 @@ import Home from '/imports/ui/views/Home/Home';
 import userRoutes from '/imports/ui/routes/userRoutes';
 import loginRoutes from '/imports/ui/routes/loginRoutes';
 import ConfigureAccount from '../views/Account/ConfigureAccount';
+import profileRoutes from '/imports/ui/routes/profileRoutes';
 
 export default normalizeRoutes([
 	{
@@ -25,7 +26,8 @@ export default normalizeRoutes([
 					sectionView: ConfigureAccount
 				}
 			},
-			userRoutes
+			userRoutes,
+			profileRoutes
 		]
 	},
 	{

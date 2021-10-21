@@ -75,6 +75,13 @@ let theme = createTheme({
 			defaultProps: {
 				spacing: 6
 			}
+		},
+		MuiDataGrid: {
+			styleOverrides: {
+				root: {
+					border: 'none'
+				}
+			}
 		}
 	},
 	spacing: 4 //Vuetify v2.5 spacing of 4px
