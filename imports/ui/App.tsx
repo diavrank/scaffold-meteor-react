@@ -7,7 +7,7 @@ import router from '/imports/ui/router';
 import routes from '/imports/ui/routes/routes';
 import { RouterView } from 'react-view-router';
 
-router.use({routes});
+router.use({ routes });
 
 console.log('router: ', router);
 
@@ -16,7 +16,7 @@ export const App = () => {
 	return (
 		<ThemeProvider theme={ theme }>
 			<Provider store={ generateStore() }>
-				<RouterView router={ router}/>
+				<RouterView router={ router }/>
 			</Provider>
 		</ThemeProvider>
 	);

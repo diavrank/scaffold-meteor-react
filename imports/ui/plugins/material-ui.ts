@@ -1,5 +1,6 @@
 import { createTheme } from '@mui/material/styles';
 import { esES } from '@mui/material/locale';
+import { DataGridComponents } from '@mui/x-data-grid/themeAugmentation';
 
 declare module '@mui/material/styles' {
 
@@ -9,6 +10,11 @@ declare module '@mui/material/styles' {
 
 	interface PaletteOptions {
 		accent: PaletteOptions['primary'];
+	}
+}
+
+declare module '@mui/material/styles/components' {
+	interface Components extends DataGridComponents {
 	}
 }
 
@@ -77,6 +83,12 @@ let theme = createTheme({
 			}
 		},
 		MuiDataGrid: {
+			defaultProps: {
+				autoHeight: true,
+				disableColumnMenu: true,
+				hideFooterSelectedRowCount: true,
+				disableSelectionOnClick: true
+			},
 			styleOverrides: {
 				root: {
 					border: 'none'

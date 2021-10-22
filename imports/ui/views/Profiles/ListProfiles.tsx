@@ -1,15 +1,26 @@
 import React, { Fragment } from 'react';
-import { Box, Container, Fab, Grid, Paper, Tooltip } from '@mui/material';
+import { Box, Container, Fab, Grid, Paper, Tooltip, Typography } from '@mui/material';
 import router from '/imports/ui/router';
 import AddIcon from '@mui/icons-material/Add';
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import { DataGrid, GridColDef, GridColumnHeaderParams } from '@mui/x-data-grid';
 import { Close, Edit } from '@mui/icons-material';
 
 const columns: GridColDef[] = [
-	{ field: 'description', headerName: 'Profile name', sortable: true, flex: 1 },
+	{
+		field: 'description',
+		headerName: 'Profile name',
+		renderHeader: (_params: GridColumnHeaderParams) => (
+			<Typography fontWeight="light">Profile name</Typography>
+		),
+		sortable: true,
+		flex: 1
+	},
 	{
 		field: 'action',
 		headerName: 'Options',
+		renderHeader: (_params: GridColumnHeaderParams) => (
+			<Typography fontWeight="light">Options</Typography>
+		),
 		sortable: false,
 		flex: 0.3,
 		minWidth: 100,
@@ -76,7 +87,6 @@ const ListProfiles = () => {
 							       borderRadius: '10px'
 						       } }>
 							<DataGrid
-								autoHeight
 								rows={ rows }
 								columns={ columns }
 								pageSize={ pageSize }
